@@ -39,8 +39,10 @@ void Display(void)
 	{
 		GPIO_PLACE=DIG_PLACE[i];
 		GPIO_DIG=DisplayData[i];
+		//刷新时间间隔语句，若放在消影语句之后可调节数码管亮度
 		j=10;
 		while(j--);
+		//原理：位选段选语句表示亮，消影语句表示灭，调整亮灭时间长度从而在不断刷新的机制下调节数码管亮度
 		GPIO_DIG=0x00;//消影
 	}
 }
