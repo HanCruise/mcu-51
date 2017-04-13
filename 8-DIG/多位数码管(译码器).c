@@ -14,19 +14,19 @@ uchar code DIG_CODE[16]=
 
 void main(void)
 {
-	uint i=1,j;
+	uint i=0,j;
 	while(1)
 	{
 		switch(i)
 		{
-			case 1:LSA=0;LSB=0;LSC=0;break;
-			case 2:LSA=1;LSB=0;LSC=0;break;
-			case 3:LSA=0;LSB=1;LSC=0;break;
-			case 4:LSA=1;LSB=1;LSC=0;break;
-			case 5:LSA=0;LSB=0;LSC=1;break;
-			case 6:LSA=1;LSB=0;LSC=1;break;
-			case 7:LSA=0;LSB=1;LSC=1;break;
-			case 8:LSA=1;LSB=1;LSC=1;break;
+			case 0:LSA=0;LSB=0;LSC=0;break;
+			case 1:LSA=1;LSB=0;LSC=0;break;
+			case 2:LSA=0;LSB=1;LSC=0;break;
+			case 3:LSA=1;LSB=1;LSC=0;break;
+			case 4:LSA=0;LSB=0;LSC=1;break;
+			case 5:LSA=1;LSB=0;LSC=1;break;
+			case 6:LSA=0;LSB=1;LSC=1;break;
+			case 7:LSA=1;LSB=1;LSC=1;break;
 			default:break;
 		}
 		GPIO_DIG=DIG_CODE[i];
@@ -34,7 +34,7 @@ void main(void)
 		while(j--);
 		GPIO_DIG=0x00;
 		i++;
-		if(i==9) i=1;
+		if(i==8) i=0;
 	}
 }
 
