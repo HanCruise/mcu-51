@@ -34,11 +34,9 @@ void main(void)
 {
 	Second=1;
 	Timer0Config();
-	while(1)
-	{
+	while(1){
 		if(Second==70) Second=1;
-		if(Second<31)
-		{
+		if(Second<31){
 			DisplayData[0]=0x00;
 			DisplayData[1]=0x00;
 			DisplayData[2]=DIG_CODE[(30-Second)%100/10];
@@ -58,8 +56,7 @@ void main(void)
 			RED00=0;    //左右禁止
 			RED01=0;
 		}
-		else if(Second<36)
-		{
+		else if(Second<36){
 			DisplayData[0]=0x00;
 			DisplayData[1]=0x00;
 			DisplayData[2]=DIG_CODE[(35-Second)%100/10];
@@ -76,11 +73,10 @@ void main(void)
 
 			YELLOW01=0;//黄灯亮、红灯亮
 			RED00 = 0;
-      YELLOW11=0;
+      			YELLOW11=0;
 			RED10	= 0;
 		}
-		else if(Second<66)
-		{
+		else if(Second<66){
 			DisplayData[0]=0x00;
 			DisplayData[1]=0x00;
 			DisplayData[2]=DIG_CODE[(65-Second)%100/10];
@@ -100,8 +96,7 @@ void main(void)
 			GREEN00=0; //左右通行
 			GREEN01=0;
 		}
-		else
-		{
+		else{
 			DisplayData[0]=0x00;
 			DisplayData[1]=0x00;
 			DisplayData[2]=DIG_CODE[(70-Second)%100/10];
@@ -118,7 +113,7 @@ void main(void)
 
 			YELLOW01=0;//黄灯亮、红灯亮
 			RED00 = 0;
-      YELLOW11=0;
+      			YELLOW11=0;
 			RED10	= 0;
 		}
 	}
@@ -127,8 +122,7 @@ void main(void)
 void DigDisplay(void)
 {
 	uchar i,j;
-	for(i=0;i<8;i++)
-	{
+	for(i=0;i<8;i++){
 		GPIO_PLACE=DIG_PLACE[i];//先位选、再段选
 		GPIO_DIG=DisplayData[i];//注意顺序，否则在该灭的位置会有影
 		j=10;
